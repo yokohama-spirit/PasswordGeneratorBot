@@ -1,7 +1,7 @@
-﻿namespace PasswordGeneratorBot.Services
+﻿namespace PasswordGeneratorBot.Interfaces
 {
     public interface IPasswordGenerator
     {
-        Task<string> GeneratePasswordAsync();
+        Task<string> GeneratePassword(decimal lenght);
     }
 }

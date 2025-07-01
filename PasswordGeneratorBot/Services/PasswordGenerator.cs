@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using PasswordGeneratorBot.Interfaces;
 
 namespace PasswordGeneratorBot.Services
 {
@@ -16,7 +17,7 @@ namespace PasswordGeneratorBot.Services
             _rng = RandomNumberGenerator.Create();
         }
 
-        public async Task<string> GeneratePasswordAsync()
+        public async Task<string> GeneratePassword(decimal lenght)
         {
             return await Task.Run(() =>
             {
@@ -27,9 +28,10 @@ namespace PasswordGeneratorBot.Services
                 password.Append(GetRandomChar(Digits));
                 password.Append(GetRandomChar(SpecialChars));
 
+                var l = lenght - 3;
 
                 var allChars = LowerCase + UpperCase + Digits + SpecialChars;
-                for (int i = 0; i < 12; i++) 
+                for (int i = 0; i < l; i++) 
                 {
                     password.Append(GetRandomChar(allChars));
                 }

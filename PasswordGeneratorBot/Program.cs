@@ -1,4 +1,5 @@
 using PasswordGeneratorBot.Config;
+using PasswordGeneratorBot.Interfaces;
 using PasswordGeneratorBot.Services;
 
 var builder = WebApplication.CreateBuilder(args);
